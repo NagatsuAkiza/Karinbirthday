@@ -294,9 +294,9 @@ const StoryComponent: React.FC = () => {
                 amazing as you are!
               </p>
               <p className="text-base text-gray-600 mb-4">
-                Keep shining brightly, keep spreading joy, and always remember how much you{"'"}re
-                appreciated by those around you. I{"'"}m grateful for all the wonderful memories,
-                and I can{"'"}t wait to create more with you in the future. Have a fantastic
+                Keep shining brightly, keep spreading joy, and always remember how much you&#39;re
+                appreciated by those around you. I&#39;m grateful for all the wonderful memories,
+                and I can&#39;t wait to create more with you in the future. Have a fantastic
                 birthday!
               </p>
               <p className="font-semibold text-gray-800">
@@ -371,7 +371,7 @@ const StoryComponent: React.FC = () => {
                   <source src="assets/vk1.mp3" type="audio/mp3" />
                   Your browser does not support the audio element.
                 </audio>
-                <p className="text-center mt-2 text-gray-300">"Letsgoo."</p>
+                <p className="text-center mt-2 text-gray-300">&#34;Letsgoo.&#34;</p>
               </div>
               <div className="w-full lg:w-1/2">
                 <h2 className="mb-4 text-center font-semibold text-white">Voice Clip 2</h2>
@@ -379,7 +379,7 @@ const StoryComponent: React.FC = () => {
                   <source src="assets/vk2.mp3" type="audio/mp3" />
                   Your browser does not support the audio element.
                 </audio>
-                <p className="text-center mt-2 text-gray-300">"AAAAA"</p>
+                <p className="text-center mt-2 text-gray-300">&#34;AAAAA&#34;</p>
               </div>
               <div className="w-full lg:w-1/2">
                 <h2 className="mb-4 text-center font-semibold text-white">Voice Clip 3</h2>
@@ -387,7 +387,7 @@ const StoryComponent: React.FC = () => {
                   <source src="assets/vk3.mp3" type="audio/mp3" />
                   Your browser does not support the audio element.
                 </audio>
-                <p className="text-center mt-2 text-gray-300">"Gomennasaiii 😫"</p>
+                <p className="text-center mt-2 text-gray-300">&#34;Gomennasaiii 😫&#34;</p>
               </div>
               <div className="w-full lg:w-1/2">
                 <h2 className="mb-4 text-center font-semibold text-white">Voice Clip 4</h2>
@@ -395,7 +395,7 @@ const StoryComponent: React.FC = () => {
                   <source src="assets/muaaa.mp3" type="audio/mp3" />
                   Your browser does not support the audio element.
                 </audio>
-                <p className="text-center mt-2 text-gray-300">"🥰🥰🥰."</p>
+                <p className="text-center mt-2 text-gray-300">&#34;🥰🥰🥰.&#34;</p>
               </div>
             </div>
 
