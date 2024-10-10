@@ -1,4 +1,3 @@
-import * as bootstrap from "bootstrap";
 import FirstSec from "@/components/sections/FirstSec";
 import React from "react";
 

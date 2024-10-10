@@ -4,6 +4,6 @@ declare module "*.mp3" {
 }
 
 declare module "bootstrap/dist/js/bootstrap.bundle.js" {
-  const bootstrap: any;
+  const bootstrap: unknown = undefined;
   export default bootstrap;
 }
