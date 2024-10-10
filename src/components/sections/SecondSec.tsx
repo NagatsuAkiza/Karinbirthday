@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import useHoverSound from "@/hooks/sfxHover";
 import { TbLockFilled } from "react-icons/tb";
 import { BsUnlockFill } from "react-icons/bs";
+import Image from "next/image";
 
 // Password Modal component
 const PasswordModal: React.FC<{ isOpen: boolean; onClose: () => void; onUnlock: () => void }> = ({
@@ -14,7 +15,7 @@ const PasswordModal: React.FC<{ isOpen: boolean; onClose: () => void; onUnlock: 
   const [password, setPassword] = useState<string>("");
   const correctPassword = "hbdkarin"; // Set your correct password here
 
-  const { handleMouseEnter, handleMouseLeave, clikMouse } = useHoverSound();
+  const { clikMouse } = useHoverSound();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -86,7 +87,14 @@ const StoryCard: React.FC<StoryCardProps> = ({ title, imgSrc, text, onNext }) =>
           </button>
         </div>
         <div className="flex flex-col justify-center items-center mt-4">
-          <img src={imgSrc} alt={title} className="w-48 h-48 object-cover" />
+          <Image
+            src={imgSrc}
+            alt={title}
+            width={"250"}
+            height={"250"}
+            quality={90}
+            className="w-48 h-48 object-cover"
+          />
           <p className="mt-2 text-gray-700 font-semibold">{text}</p>
         </div>
       </div>
@@ -106,17 +114,17 @@ const StoryComponent: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const storyData = [
-    { title: "Karin Nathania", imgSrc: "assets/B3.png", text: "Ehh dimana ini?" },
-    { title: "???", imgSrc: "assets/ic.svg", text: "Halo selamat datang di planet TDR5000" },
-    { title: "Karin Nathania", imgSrc: "assets/B3.png", text: "Haa!!? Planet TDR5000?" },
+    { title: "Karin Nathania", imgSrc: "/assets/B3.png", text: "Ehh dimana ini?" },
+    { title: "???", imgSrc: "/assets/ic.svg", text: "Halo selamat datang di planet TDR5000" },
+    { title: "Karin Nathania", imgSrc: "/assets/B3.png", text: "Haa!!? Planet TDR5000?" },
     {
       title: "???",
-      imgSrc: "assets/ic.svg",
+      imgSrc: "/assets/ic.svg",
       text: "Iya, ini adalah planet yang kamu landasi ketika terjadinya disorientasi waktu yang terjadi di galaxy"
     },
     {
       title: "???",
-      imgSrc: "assets/ic.svg",
+      imgSrc: "/assets/ic.svg",
       text: "Jadi mungkin kamu dapat melihat apa yang sudah terjadi selama kamu melakukan perjalanan sampai sejauh ini 💫"
     }
   ];
@@ -184,6 +192,7 @@ const StoryComponent: React.FC = () => {
     if (audio.paused) {
       audio.play().catch((error) => {
         console.error("Error playing music:", error);
+        audio.currentTime = 0; // Reset to start on error
       });
     } else {
       audio.pause(); // Pause if it's already playing
@@ -285,9 +294,10 @@ const StoryComponent: React.FC = () => {
                 amazing as you are!
               </p>
               <p className="text-base text-gray-600 mb-4">
-                Keep shining brightly, keep spreading joy, and always remember how much you're
-                appreciated by those around you. I’m grateful for all the wonderful memories, and I
-                can’t wait to create more with you in the future. Have a fantastic birthday!
+                Keep shining brightly, keep spreading joy, and always remember how much you{"'"}re
+                appreciated by those around you. I{"'"}m grateful for all the wonderful memories,
+                and I can{"'"}t wait to create more with you in the future. Have a fantastic
+                birthday!
               </p>
               <p className="font-semibold text-gray-800">
                 Best wishes,
@@ -297,7 +307,7 @@ const StoryComponent: React.FC = () => {
             </div>
             <div className="flex justify-center items-center flex-col gap-4">
               <button
-                onClick={() => playMusic()}
+                onClick={playMusic}
                 className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
                 My Gift
               </button>
@@ -319,8 +329,6 @@ const StoryComponent: React.FC = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 text-gray-200 px-4">
           <div className="container bg-gray-800 rounded-lg shadow-lg p-6 max-w-3xl w-full">
             <h5 className="font-bold text-xl text-center mb-6 text-white">Karin Clips</h5>
-
-            {/* Apply flex-col for small screens, flex-row for larger screens */}
             <div className="flex flex-col lg:flex-row lg:justify-between gap-6">
               <div className="w-full lg:w-1/2">
                 <h2 className="mb-4 text-center font-semibold text-white">Gak Usah</h2>
@@ -356,8 +364,6 @@ const StoryComponent: React.FC = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 text-gray-200 px-4">
           <div className="container bg-gray-800 rounded-lg shadow-lg p-6 max-w-3xl w-full">
             <h5 className="font-bold text-xl text-center mb-6 text-white">Karin Voice Pack</h5>
-
-            {/* Apply flex-col for small screens, flex-row for larger screens */}
             <div className="flex flex-col lg:flex-row lg:justify-between gap-6">
               <div className="w-full lg:w-1/2">
                 <h2 className="mb-4 text-center font-semibold text-white">Voice Clip 1</h2>
@@ -387,6 +393,7 @@ const StoryComponent: React.FC = () => {
                 <h2 className="mb-4 text-center font-semibold text-white">Voice Clip 4</h2>
                 <audio controls className="w-full rounded-lg">
                   <source src="assets/muaaa.mp3" type="audio/mp3" />
+                  Your browser does not support the audio element.
                 </audio>
                 <p className="text-center mt-2 text-gray-300">"🥰🥰🥰."</p>
               </div>
@@ -394,7 +401,10 @@ const StoryComponent: React.FC = () => {
 
             <div className="flex justify-center mt-6">
               <button
-                onClick={toggleVoicePackMenu}
+                onClick={() => {
+                  setShowVoicePack(false);
+                  clikMouse();
+                }}
                 className="button-85 font-bold text-white bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full transition-all">
                 Close
               </button>

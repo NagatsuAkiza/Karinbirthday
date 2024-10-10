@@ -1,4 +1,3 @@
-import useGroupButton from "@/hooks/groupButton";
 import React, { useEffect, useState, useRef } from "react";
 
 interface CountdownProps {
@@ -31,7 +30,7 @@ const Countdown: React.FC<CountdownProps> = ({ onComplete }) => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [countdown, onComplete]);
+  }, [countdown, onComplete, over]);
 
   return (
     <div className="flex justify-center items-center">

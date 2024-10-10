@@ -21,7 +21,6 @@ const useGroupButton = (startCountdown: () => void) => {
     const playU = playRef.current;
     const bg1 = bg1Ref.current;
     const ls = (landShipRef.current = new Audio("/assets/sl.mp3"));
-    const overlay = overlayRef.current;
 
     // overlay?.classList.add("bg-black");
 
