@@ -23,6 +23,14 @@
   transition: fade-out;
 }
 
+.bg2 {
+  background: url("/assets/bg2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
 /* CSS */
 .button-85 {
   padding: 1em 3em;

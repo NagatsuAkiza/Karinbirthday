@@ -9,6 +9,8 @@ const useGroupButton = (startCountdown: () => void) => {
   const playRef = useRef<HTMLButtonElement | null>(null);
   const bg1Ref = useRef<HTMLDivElement | null>(null);
   const musicRef = useRef<HTMLAudioElement | null>(null);
+  const landShipRef = useRef<HTMLAudioElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const btn1 = btn1Ref.current;
@@ -18,6 +20,10 @@ const useGroupButton = (startCountdown: () => void) => {
     const backB = backBRef.current;
     const playU = playRef.current;
     const bg1 = bg1Ref.current;
+    const ls = (landShipRef.current = new Audio("/assets/sl.mp3"));
+    const overlay = overlayRef.current;
+
+    // overlay?.classList.add("bg-black");
 
     // Handle Start Button Click: Trigger fade out and start countdown
     if (btn1) {
@@ -25,6 +31,8 @@ const useGroupButton = (startCountdown: () => void) => {
         sec1?.classList.add("hidden");
         bg1?.classList.add("fade-out");
         bg1?.classList.add("fade-out-active");
+        ls.volume = 0.4;
+        ls.play();
         startCountdown();
       });
     }
@@ -76,7 +84,7 @@ const useGroupButton = (startCountdown: () => void) => {
     };
   }, [startCountdown]);
 
-  return { btn1Ref, btn2Ref, sec1Ref, musMRef, backBRef, playRef, bg1Ref };
+  return { btn1Ref, btn2Ref, sec1Ref, musMRef, backBRef, playRef, bg1Ref, musicRef, overlayRef };
 };
 
 export default useGroupButton;

@@ -1,3 +1,4 @@
+import useGroupButton from "@/hooks/groupButton";
 import React, { useEffect, useState, useRef } from "react";
 
 interface CountdownProps {
@@ -5,16 +6,23 @@ interface CountdownProps {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ onComplete }) => {
-  const [countdown, setCountdown] = useState(0); // Starting at 3
-  const landShipRef = useRef<HTMLAudioElement | null>(null);
+  const [countdown, setCountdown] = useState(2);
+  const overRef = useRef<HTMLDivElement | null>(null);
+
+  const over = overRef.current;
 
   useEffect(() => {
-    const ls = (landShipRef.current = new Audio("/assets/sl.mp3"));
-    ls.volume = 0.4;
-    ls.play();
-
     if (countdown <= 0) {
-      onComplete();
+      setTimeout(() => {
+        over?.classList.add("fade-out");
+        over?.classList.add("fade-out-active");
+        setTimeout(() => {
+          onComplete();
+          over?.classList.add("fade-in-active");
+          over?.classList.add("fade-in");
+          over?.classList.add("hidden");
+        }, 600);
+      }, 1000);
       return;
     }
 
@@ -22,12 +30,23 @@ const Countdown: React.FC<CountdownProps> = ({ onComplete }) => {
       setCountdown((prev) => prev - 1);
     }, 1000);
 
-    return () => clearInterval(timer); // Clear the interval when the component unmounts
+    return () => clearInterval(timer);
   }, [countdown, onComplete]);
 
   return (
-    <div className="font-bold text-2xl text-center">
-      {countdown > 0 ? <span>{countdown}</span> : <span>Landing!</span>}
+    <div className="flex justify-center items-center">
+      {countdown >= 0 ? (
+        <div
+          ref={overRef}
+          className="flex flex-col bg-black w-screen h-screen justify-center items-center font-bold text-2xl text-white text-center">
+          <span>Landing In</span>
+          <span>{countdown}</span>
+        </div>
+      ) : (
+        <div className="fade-in fade-in-active flex font-bold text-2xl text-white text-center">
+          Ship Landing
+        </div>
+      )}
     </div>
   );
 };

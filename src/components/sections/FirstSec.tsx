@@ -19,7 +19,7 @@ const FirstSec: React.FC = () => {
     setShowSecondSec(true);
   };
 
-  const { btn1Ref, btn2Ref, sec1Ref, musMRef, backBRef, playRef, bg1Ref } =
+  const { btn1Ref, btn2Ref, sec1Ref, musMRef, backBRef, playRef, bg1Ref, overlayRef } =
     useGroupButton(startCountdown);
   const { handleMouseEnter, handleMouseLeave, clikMouse } = useHoverSound();
 
