@@ -9,6 +9,9 @@ const useHoverSound = () => {
       // This ensures that Audio is only created on the client-side
       hoverSoundRef.current = new Audio("/assets/hoverSound.wav");
       clickSoundRef.current = new Audio("/assets/kliksfx.wav");
+
+      hoverSoundRef.current.volume = 0.2;
+      clickSoundRef.current.volume = 0.5;
     }
   }, []);
 
