@@ -5,7 +5,7 @@ interface CountdownProps {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ onComplete }) => {
-  const [countdown, setCountdown] = useState(5); // Starting at 3
+  const [countdown, setCountdown] = useState(0); // Starting at 3
   const landShipRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {

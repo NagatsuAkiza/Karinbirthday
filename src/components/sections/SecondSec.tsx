@@ -1,7 +1,7 @@
 import React from "react";
 
 const SecondSec = () => {
-  return <div>SecondSec</div>;
+  return <div className="">SecondSec</div>;
 };
 
 export default SecondSec;

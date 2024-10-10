@@ -2,3 +2,8 @@ declare module "*.mp3" {
   const src: string;
   export default src;
 }
+
+declare module "bootstrap/dist/js/bootstrap.bundle.js" {
+  const bootstrap: any;
+  export default bootstrap;
+}
