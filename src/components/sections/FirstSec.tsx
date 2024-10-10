@@ -11,12 +11,12 @@ const FirstSec: React.FC = () => {
   const [showSecondSec, setShowSecondSec] = React.useState(false);
 
   const startCountdown = () => {
-    setShowCountdown(true); // Trigger showing the countdown
+    setShowCountdown(true);
   };
 
   const handleCountdownComplete = () => {
-    setShowCountdown(false); // Hide countdown when finished
-    setShowSecondSec(true); // Show the second section
+    setShowCountdown(false);
+    setShowSecondSec(true);
   };
 
   const { btn1Ref, btn2Ref, sec1Ref, musMRef, backBRef, playRef, bg1Ref } =
