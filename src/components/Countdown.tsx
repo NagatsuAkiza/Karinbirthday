@@ -6,7 +6,7 @@ interface CountdownProps {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ onComplete }) => {
-  const [countdown, setCountdown] = useState(2);
+  const [countdown, setCountdown] = useState(15);
   const overRef = useRef<HTMLDivElement | null>(null);
 
   const over = overRef.current;
