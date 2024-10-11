@@ -184,7 +184,7 @@ const StoryComponent: React.FC = () => {
     // Initialize the audio reference if it hasn't been set
     if (!audioRef.current) {
       audioRef.current = new Audio("assets/hbd.wav");
-      audioRef.current.volume = 0.3; // Adjust the volume
+      audioRef.current.volume = 0.5; // Adjust the volume
     }
 
     const audio = audioRef.current; // Use the audio reference
